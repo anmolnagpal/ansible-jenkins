@@ -1,6 +1,6 @@
 galaxy_info:
   author: Anmol Nagpal
-  description: DevOps Guy ;)
+  description: An Ansible role for deploy Jenkins.
   company: DevOps Talks
 
   # If the issue tracker for your role is not on github, uncomment the
