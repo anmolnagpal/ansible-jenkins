@@ -1,2 +1,49 @@
 ---
-# tasks file for ansible-jenkins
+
+
+- name: Ensure jenkins pre packages installed
+  import_tasks: packages.yml
+  tags:
+    - jenkins
+
+# Setup/install tasks.
+- name: Install Jenkins
+  import_tasks: setup.yml
+  tags:
+    - jenkins
+
+- name: prepare setting for jenkins
+- import_tasks: settings.yml
+  tags:
+    - jenkins
+
+- name: Ensure Jenkins is started and runs on startup.
+  service: name=jenkins state=started enabled=yes
+  tags:
+    - jenkins
+
+- name: Wait for Jenkins to start up before proceeding.
+  shell: "curl -D - --silent http://{{ jenkins_hostname }}:{{ jenkins_http_port }}{{ jenkins_url_prefix }}/cli/"
+  register: result
+  until: (result.stdout.find("403 Forbidden") != -1) or (result.stdout.find("200 OK") != -1) and (result.stdout.find("Please wait while") == -1)
+  retries: "{{ jenkins_connection_retries }}"
+  delay: "{{ jenkins_connection_delay }}"
+  changed_when: false
+  tags:
+    - jenkins
+
+- name: Get the jenkins-cli jarfile from the Jenkins server.
+  get_url:
+    url: "http://{{ jenkins_hostname }}:{{ jenkins_http_port }}{{ jenkins_url_prefix }}/jnlpJars/jenkins-cli.jar"
+    dest: "{{ jenkins_jar_location }}"
+  register: jarfile_get
+  until: "'OK' in jarfile_get.msg or 'file already exists' in jarfile_get.msg"
+  retries: 5
+  delay: 10
+  tags:
+    - jenkins
+
+- import_tasks: plugins.yml
+  tags:
+    - jenkins
+    - plugins

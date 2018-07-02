@@ -1,0 +1,21 @@
+---
+
+- name: Define jenkins_repo_url
+  set_fact:
+    jenkins_repo_url: "{{ __jenkins_repo_url }}"
+  when: jenkins_repo_url is not defined
+
+- name: Define jenkins_repo_key_url
+  set_fact:
+    jenkins_repo_key_url: "{{ __jenkins_repo_key_url }}"
+  when: jenkins_repo_key_url is not defined
+
+- name: Download jenkins2
+  get_url:
+    url: "http://pkg.jenkins-ci.org/debian/binary/jenkins_{{jenkins_version}}_all.deb"
+    dest: "/tmp/jenkins_{{jenkins_version}}_all.deb"
+    validate_certs: no
+
+- name: Ensure jenkins2 is installed.
+  apt: deb="/tmp/jenkins_{{jenkins_version}}_all.deb"
+
