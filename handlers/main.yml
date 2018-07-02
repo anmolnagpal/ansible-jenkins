@@ -1,2 +1,13 @@
 ---
-# handlers file for ansible-jenkins
+- name: start jenkins
+  service: name=jenkins state=started enabled=yes
+
+- name: reload jenkins
+  service: name=jenkins state=reloaded
+
+- name: restart jenkins
+  service: name=jenkins state=restarted
+
+- name: stop jenkins
+  service: name=jenkins state=stopped
+

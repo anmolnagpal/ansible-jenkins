@@ -1,2 +1,15 @@
 ---
-# defaults file for ansible-jenkins
+
+jenkins_version: 2.101
+jenkins_connection_delay: 5
+jenkins_connection_retries: 60
+jenkins_hostname: tools-live.herosports.com
+jenkins_http_port: 8443
+jenkins_jar_location: /opt/jenkins-cli.jar
+jenkins_home: /var/lib/jenkins
+ssl_jenkins: false
+jenkins_url_prefix: ""
+jenkins_http_port_param: HTTP_PORT
+__jenkins_repo_url: deb http://pkg.jenkins-ci.org/debian binary/
+__jenkins_repo_key_url: http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key
+jenkins_init_file: /etc/default/jenkins
