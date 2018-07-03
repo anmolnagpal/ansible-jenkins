@@ -2,6 +2,15 @@
 
 > Ansible role to deploy/setup jenkins on ubuntu 
 
+
+## Example Playbook
+
+```yaml
+- hosts: jenkins
+  roles:
+    - role: ansible-jenkins
+      become: true
+```
 ## 👬 Contribution
 - Open pull request with improvements
 - Discuss ideas in issues
