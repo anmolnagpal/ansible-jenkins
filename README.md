@@ -2,6 +2,13 @@
 
 > Ansible role to deploy/setup jenkins on ubuntu 
 
+## Role Variables
+
+```yamlex
+jenkins_version: 2.129
+jenkins_http_port: 8443
+jenkins_hostname: jenkins.yourwebsite.com
+```
 
 ## Example Playbook
 
