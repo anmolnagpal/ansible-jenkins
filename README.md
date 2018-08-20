@@ -1,7 +1,15 @@
 <p align="center"><img src="https://user-images.githubusercontent.com/4303310/42187056-ce468908-7e5f-11e8-8abb-022262fb82e6.png" /></p>
 
 > Ansible role to deploy/setup jenkins on ubuntu 
-
+<p align="center">
+    <a href="LICENSE.md">
+      <img src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square" alt="Software License">
+    </a>
+    <a href="https://www.paypal.me/anmolnagpal">
+      <img src="https://img.shields.io/badge/paypal-donate-179BD7.svg?style=flat-squares" alt="Donate">
+    </a>
+  </p>
+</p>
 ## Role Variables
 
 ```yamlex
