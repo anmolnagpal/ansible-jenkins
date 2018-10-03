@@ -13,7 +13,7 @@
 ## Role Variables
 
 ```yamlex
-jenkins_version: 2.129
+jenkins_version: 2.138.1
 jenkins_http_port: 8443
 jenkins_hostname: jenkins.yourwebsite.com
 ```
