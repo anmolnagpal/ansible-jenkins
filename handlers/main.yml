@@ -10,4 +10,3 @@
 
 - name: stop jenkins
   service: name=jenkins state=stopped
-
