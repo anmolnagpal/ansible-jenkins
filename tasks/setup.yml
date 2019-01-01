@@ -18,4 +18,3 @@
 
 - name: Ensure jenkins2 is installed.
   apt: deb="/tmp/jenkins_{{jenkins_version}}_all.deb"
-
